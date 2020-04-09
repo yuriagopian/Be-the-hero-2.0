@@ -29,22 +29,15 @@ export default function Profile() {
     const ongName = localStorage.getItem('ongName');
     const ongId = localStorage.getItem('ongId');
 
-    const loadIncidents = async () => {
-        try {
-            const { data } = await api.get('profile');
-            setIncidents(data);
-        } catch (err) {
-            toast.error(
-                (err.response && err.response.data.error) ||
-                'Erro de comunicação com o servidor'
-            );
-        }
-    };
-
     useEffect(() => {
-        loadIncidents();
-    }, []);
-
+        api.get('/profile', {
+            headers: {
+                authorization: ongId,
+            }
+        }).then(response => {
+            setIncidents(response.data);
+        })
+    }, [ongId]);
 
 
     async function handleDeleteIncident(id) {
@@ -91,7 +84,7 @@ export default function Profile() {
             <Header>
                 <img src={title === 'light' ? logo : logoDark} alt="Heroes" />
 
-                <span>Bem vinda, {ongName}</span>
+                <span>Bem vindo, {ongName}</span>
                 <Toggle
                     checked={title === 'dark'}
                     onChange={toggleTheme}
@@ -111,7 +104,7 @@ export default function Profile() {
                 </Button>
 
 
-                <button onClick={handleLogout} type="button">
+                <button id="logout" onClick={handleLogout} type="button">
                     <FiPower size={18} color="#E02041" />
                 </button>
             </Header>

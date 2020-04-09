@@ -28,7 +28,7 @@ export default function Register() {
     const { title } = useContext(ThemeContext);
 
     async function handleRegister(e) {
-        e.preventDefault();
+        //e.preventDefault();
 
         const data = {
             name,
@@ -45,7 +45,7 @@ export default function Register() {
             history.push('/')
 
         } catch (error) {
-            alert('Erro no cadastro, tente novament !')
+            alert('Erro no cadastro, tente novamente !')
         };
     }
 

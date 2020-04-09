@@ -38,7 +38,7 @@ export default function NewIncident() {
     };
 
     async function handleSubmit(e) {
-        e.preventDefault();
+       // e.preventDefault();
         const data = {
             title,
             description,
@@ -50,12 +50,12 @@ export default function NewIncident() {
             setLoading(true);
             const { title, description, value } = data;
 
-            if (ongId) {
-                await api.put(`/incidents/${ongId}`, { title, description, value });
-                toast.success('Caso atualizado com sucesso');
-                history.push('/profile');
-                return;
-            }
+            // if (ongId) {
+            //     await api.put(`/incidents/${ongId}`, { title, description, value });
+            //     toast.success('Caso atualizado com sucesso');
+            //     history.push('/profile');
+            //     return;
+            // }
 
 
             await api.post('incidents', data, {
@@ -84,7 +84,7 @@ export default function NewIncident() {
         if (ongId) {
             loadIncident();
         }
-    }, [id]); //eslint-disable-line
+    }, [ongId]); //eslint-disable-line
 
 
     return (

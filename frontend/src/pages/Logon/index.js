@@ -22,7 +22,7 @@ export default function Logon() {
     const { title } = useContext(ThemeContext);
 
     async function handleLogin(e) {
-        e.preventDefault();
+        //e.preventDefault();
         try {
             const response = await api.post('sessions', { id })
 

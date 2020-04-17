@@ -54,6 +54,12 @@ export const Unform = styled(Form)`
       margin-left: 8px;
       align-self: flex-end;
     }
+
+    select#uf {
+      width: 80px;
+      margin-left: 8px;
+      align-self: flex-end;
+    }
   }
 `;
 

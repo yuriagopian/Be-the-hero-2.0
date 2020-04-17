@@ -25,4 +25,5 @@ export const Container = styled.div`
     animation: 300ms ease-out 0s 1 slideInFromLeft;
     word-wrap: break-word;
   }
+ 
 `;
